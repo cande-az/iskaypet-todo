@@ -1,9 +1,14 @@
-import React from "react";
+import React, { FC , JSX } from "react";
 import styles from "./Title.module.scss";
 
-const Title = ({ type = "primary", label = "Title", tag = 'h1' }) => {
-  
-  return <h1 className={styles[type]}>{label}</h1>;
+interface TitleProps {
+  type?: "primary" | "secondary";
+  label?: string;
+  tag?: keyof JSX.IntrinsicElements; 
+}
+
+const Title: FC<TitleProps> = ({ type = "primary", label = "Title", tag = "h1" }) => {
+  return React.createElement(tag, { className: styles[type] }, label);
 };
 
 export default Title;

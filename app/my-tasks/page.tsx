@@ -1,10 +1,21 @@
+import Button from "../components/Button/Button";
 import MainContainer from "../components/MainContainer/MainContainer";
 import Title from "../components/Title/Title";
+import { getTodos } from "../services/actions/todos";
+import Tasks from "./components/Tasks/Tasks";
 
-export default function Page() {
+const getData = async () => {
+  const todos = await getTodos();
+  return todos;
+};
+
+export default async function Page() {
+  const todos = await getData();
   return (
     <MainContainer>
       <Title label="Mis tareas" />
+      <Tasks tasks={todos}/>
+      <Button>Agregar tarea</Button>
     </MainContainer>
   );
 }
