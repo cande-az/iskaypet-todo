@@ -28,4 +28,7 @@
   width: 18px;
   height: 18px;
   cursor: pointer;
+  &:focus svg {
+    color: var(--alert-color);
+  }
 }
