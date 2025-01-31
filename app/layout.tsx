@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Navbar from "./components/Navbar/Navbar";
 import { Open_Sans } from "next/font/google";
 import TilesMenu from "./components/TilesMenu/TilesMenu";
-import 'swiper/css';
-import 'swiper/css/pagination';
+import "swiper/css";
+import "swiper/css/pagination";
 import "./globals.scss";
+import DesktopContainer from "./components/DesktopContainer/DesktopContainer";
 
 const openSans = Open_Sans({
-  subsets: ["latin"], // Subconjuntos de caracteres
-  weight: ["300", "400", "600", "700"], // Pesos que quieres usar
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"], 
   display: "swap",
 });
 
@@ -25,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={openSans.className}>
-        <Navbar />
-        <TilesMenu/>
-        {children}
+        <DesktopContainer>
+          <Navbar />
+          <TilesMenu />
+          {children}
+        </DesktopContainer>
       </body>
     </html>
   );

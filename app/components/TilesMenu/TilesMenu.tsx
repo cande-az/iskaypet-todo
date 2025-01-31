@@ -18,7 +18,6 @@ const TilesMenu = () => {
   useEffect(() => {
     if (!swiperRef.current) return;
 
-    // Checkear cual es el href que esta activo en la lista de tilesMenu y hacer el slideTo
     tilesMenu.forEach((tile, index) => {
       if (pathname.includes(tile.href)) {
         swiperRef.current?.swiper.slideTo(index);
