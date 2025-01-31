@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import Navbar from "./components/Navbar/Navbar";
+import { Open_Sans } from "next/font/google";
+import TilesMenu from "./components/TilesMenu/TilesMenu";
+import 'swiper/css';
+import 'swiper/css/pagination';
+import "./globals.scss";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const openSans = Open_Sans({
+  subsets: ["latin"], // Subconjuntos de caracteres
+  weight: ["300", "400", "600", "700"], // Pesos que quieres usar
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,7 +24,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className={openSans.className}>
+        <Navbar />
+        <TilesMenu/>
         {children}
       </body>
     </html>

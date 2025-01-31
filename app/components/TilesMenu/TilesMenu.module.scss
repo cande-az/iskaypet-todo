@@ -1,0 +1,25 @@
+.tiles__menu {
+  position: relative;
+  width: 100%;
+  padding: 0 0 0 16px ;
+  border-top: 1px solid #e5e5e5;
+  background-color: var(--background-secondary);
+  box-shadow: 0px 3px 3px 0px #0000001f;
+}
+
+.swiper__container {
+  display: flex;
+  gap: 18px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  cursor: grab;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.swiper-slide {
+  width: fit-content !important;
+}
