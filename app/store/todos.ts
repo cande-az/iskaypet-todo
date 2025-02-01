@@ -4,6 +4,7 @@ import { ITodo } from "../services/interfaces/ITodo";
 
 interface Actions {
   saveTodos: (a: ITodo[]) => void;
+  saveNewTodo: (a: ITodo) => void;
 }
 
 export interface TodosStore extends Actions {
@@ -12,11 +13,14 @@ export interface TodosStore extends Actions {
 
 export const useTodoStoreBase = create<TodosStore>()(
   persist(
-    (set) => {
+    (set, get) => {
       return {
         todos: [],
         saveTodos: (todos: ITodo[]) => {
           return set({ todos });
+        },
+        saveNewTodo: (todo: ITodo) => {
+          return set({ todos: [...get().todos, todo] });
         },
       };
     },
@@ -27,4 +31,5 @@ export const useTodoStoreBase = create<TodosStore>()(
   )
 );
 
-export const useTodoStore = () => useStore(useTodoStoreBase, (state:TodosStore) => state);
+export const useTodoStore = () =>
+  useStore(useTodoStoreBase, (state: TodosStore) => state);

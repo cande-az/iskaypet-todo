@@ -10,7 +10,7 @@ interface TasksProps {
 }
 
 const Tasks: FC<TasksProps> = ({ tasks }) => {
-  const { saveTodos} = useTodoStore();
+  const { saveTodos, todos } = useTodoStore();
 
   useEffect(() => {
     saveTodos(tasks);
@@ -18,7 +18,7 @@ const Tasks: FC<TasksProps> = ({ tasks }) => {
 
   return (
     <div className={styles.root}>
-      {tasks.map((task) => (
+      {todos.map((task) => (
         <Task title={task.title} key={task.id} />
       ))}
     </div>

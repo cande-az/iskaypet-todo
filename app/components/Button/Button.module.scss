@@ -10,7 +10,7 @@
   line-height: 21.79px;
   text-align: center;
   text-underline-position: from-font;
-  text-decoration-skip-ink: none;  
+  text-decoration-skip-ink: none;
   cursor: pointer;
   transition: background 0.2s, transform 0.1s;
   gap: 10px;
@@ -19,7 +19,7 @@
   width: 100%;
 
   .fit-content {
-    width: fit-content !important; 
+    width: fit-content !important;
   }
 
   &:disabled {
@@ -38,15 +38,18 @@
 
   &:hover {
     background: var(--secondary-color);
+    filter: brightness(1.1);
   }
 }
 
 .secondary {
-  background: #6c757d;
-  color: #fff;
+  color: #b3b3b3;
+  background: #ffffff;
+
 
   &:hover {
-    background: #545b62;
+    color: #ffffff;
+    background: #b3b3b3;
   }
 }
 
@@ -59,4 +62,3 @@
   padding: 12px 0;
   font-size: 16px;
 }
-

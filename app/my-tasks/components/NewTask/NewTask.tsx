@@ -17,7 +17,7 @@ const NewTask = () => {
         <Button onClick={handleOpen}>Agregar tarea</Button>
       </div>
       <Popup isOpen={isOpen} onClose={handleClose} top="27px" width="90%">
-        <NewTaskForm />
+        <NewTaskForm closePopup={handleClose} />
       </Popup>
     </>
   );

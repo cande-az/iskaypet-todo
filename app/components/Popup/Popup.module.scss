@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.5);
+  background: #2c2c2cc2;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,10 +16,10 @@
   padding: 20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   max-width: 400px;
-  position: absolute; 
+  position: absolute;
   gap: 0px;
   border-radius: 5px;
-  
+
   // Por defecto, centrado
   top: 50%;
   left: 50%;
