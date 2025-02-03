@@ -15,7 +15,6 @@
   transition: background 0.2s, transform 0.1s;
   gap: 10px;
   border-radius: 5px;
-  opacity: 0px;
   width: 100%;
 
   .fit-content {
@@ -45,7 +44,6 @@
 .secondary {
   color: #b3b3b3;
   background: #ffffff;
-
 
   &:hover {
     color: #ffffff;

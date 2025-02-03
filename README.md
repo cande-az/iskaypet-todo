@@ -43,4 +43,6 @@ Para iniciar el proyecto en modo desarrollo se utiliza uno de los siguientes com
    # o
    bun dev
    ```
+### Deploy
+La aplicacion se encuentra publicada en https://iskaypet-todo.vercel.app/my-data
 
