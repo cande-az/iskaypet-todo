@@ -3,3 +3,14 @@
   flex-direction: column;
   gap:16px
 }
+
+.container{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+}
+
+.container__pagination{
+  min-height: 385px;
+}

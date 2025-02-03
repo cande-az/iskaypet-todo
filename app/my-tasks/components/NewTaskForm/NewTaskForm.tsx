@@ -5,6 +5,7 @@ import React, { FC } from "react";
 import styles from "./NewTaskForm.module.scss";
 import Textarea from "@/app/components/Textarea/Textarea";
 import { useTodoStore } from "@/app/store/todos";
+import { validate } from "./validation";
 
 interface NewTaskFormProps {
   closePopup: () => void;
@@ -13,6 +14,10 @@ interface NewTaskFormProps {
 const NewTaskForm: FC<NewTaskFormProps> = ({ closePopup }) => {
   const { saveNewTodo } = useTodoStore();
   const [form, setForm] = React.useState({ name: "", description: "" });
+  const [formErrors, setFormErrors] = React.useState<null | Record<
+    string,
+    string
+  >>();
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -23,15 +28,22 @@ const NewTaskForm: FC<NewTaskFormProps> = ({ closePopup }) => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    saveNewTodo({
-      title: form.name,
-      userId: "sampleUser",
-      description: form.description,
-      completed: false,
-      id: Math.random().toString(36).substr(2, 9),
-    });
-    closePopup();
+
+    // Validation new task
+    if (validate(form)) {
+      setFormErrors(validate(form));
+    } else {
+      saveNewTodo({
+        title: form.name,
+        userId: "sampleUser",
+        description: form.description,
+        completed: false,
+        id: Math.random().toString(36).substr(2, 9),
+      });
+      closePopup();
+    }
   };
+
   return (
     <div>
       <Title label="Añadir tarea" tag="h1" />
@@ -43,6 +55,7 @@ const NewTaskForm: FC<NewTaskFormProps> = ({ closePopup }) => {
             value={form.name}
             name="name"
             onChange={handleChange}
+            error={formErrors?.name}
           />
           <Textarea
             label="Descripción"
@@ -50,6 +63,7 @@ const NewTaskForm: FC<NewTaskFormProps> = ({ closePopup }) => {
             value={form.description}
             name="description"
             onChange={handleChange}
+            error={formErrors?.description}
           />
         </div>
         <div className={styles.buttons__container}>
