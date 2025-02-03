@@ -34,14 +34,13 @@ Asegúrate de tener instalado Node.js en tu máquina. Puedes descargarlo desde [
 
 ### Desarrollo
 Para iniciar el proyecto en modo desarrollo se utiliza uno de los siguientes comandos:
-
    ```bash
-    npm run dev
-    # o
-    yarn dev
-    # o
-    pnpm dev
-    # o
-    bun dev
-    ```
+   npm run dev
+   # o
+   yarn dev
+   # o
+   pnpm dev
+   # o
+   bun dev
+   ```
 
