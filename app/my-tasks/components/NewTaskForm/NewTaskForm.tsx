@@ -29,7 +29,6 @@ const NewTaskForm: FC<NewTaskFormProps> = ({ closePopup }) => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    // Validation new task
     if (validate(form)) {
       setFormErrors(validate(form));
     } else {
@@ -67,7 +66,7 @@ const NewTaskForm: FC<NewTaskFormProps> = ({ closePopup }) => {
           />
         </div>
         <div className={styles.buttons__container}>
-          <Button type="submit" variant="secondary">
+          <Button type="submit" variant="secondary" onClick={closePopup}>
             Cancelar
           </Button>
           <Button type="submit">Guardar</Button>
